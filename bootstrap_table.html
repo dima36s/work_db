@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table id="data" class="table table-striped" xmlns="http://www.w3.org/1999/html">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>ip_address</th>
+        <th>wrs_name</th>
+        <th>MAC</th>
+        <th>user</th>
+        <th>departments</th>
+        <th>mthb</th>
+        <th>cpu</th>
+        <th>ram</th>
+        <th>video</th>
+        <th>displays</th>
+        <th>hdd</th>
+        <th>os_version</th>
+        <th>nomachine</th>
+        <th>data_time</th>
+        <th>additional_info</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{ user.ip_address }}</td>
+          <td>{{ user.wrs_name }}</td>
+          <td>{{ user.MAC }}</td>
+          <td>{{ user.user }}</td>
+          <td>{{ user.departments }}</td>
+          <td>{{ user.mthb }}</td>
+          <td>{{ user.cpu }}</td>
+          <td>{{ user.ram }}</td>
+          <td>{{ user.video }}</td>
+          <td>{{ user.displays }}</td>
+          <td>{{ user.hdd }}</td>
+          <td>{{ user.os_version }}</td>
+          <td>{{ user.nomachine }}</td>
+          <td>{{user.data_time}}</td>
+          <td>{{user.additional_info}}
+
+  <form action="{{url_for('update', _id=2)}}" method="post">
+
+    <input type="text">
+    <input type="submit">
+  </form>
+
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
